@@ -1,0 +1,5 @@
+# ssh config
+{% for item in items %}
+Host {{ item.hostname }}
+  hostname {{ item.ip }}
+{% endfor %}

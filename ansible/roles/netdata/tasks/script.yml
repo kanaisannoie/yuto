@@ -1,0 +1,6 @@
+- name: copy script
+  copy:
+    src: netdata.sh
+    dest: /tmp/netdata.sh
+    owner: "{{ admin_user }}"
+    mode: 0755

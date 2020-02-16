@@ -1,0 +1,9 @@
+- name: install X window
+  yum:
+    name: "@X Window System"
+    state: present
+
+- name: install GNOME desktop
+  yum:
+    name: "@Desktop"
+    state: present

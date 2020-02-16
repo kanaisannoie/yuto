@@ -1,0 +1,17 @@
+- name: add admin user
+  user:
+    name: "{{ admin_user }}"
+    password: "{{ admin_user | password_hash('sha512') }}"
+    update_password: on_create
+    generate_ssh_key: no
+    createhome: yes
+    shell: /bin/bash
+    state: present
+
+- name: add to sudoers
+  template:
+    src: sudoers_user
+    dest: /etc/sudoers.d/{{ admin_user }}
+    owner: root
+    group: root
+    mode: 0644

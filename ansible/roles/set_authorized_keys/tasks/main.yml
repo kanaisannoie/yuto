@@ -1,0 +1,5 @@
+- name: set authorized_keys
+  authorized_key:
+    user: "{{ main_user }}"
+    key: "{{ lookup('file', '../files/usualkey.pub') }}"
+    state: present

@@ -1,0 +1,6 @@
+- name: copy convenience script for install docker
+  copy:
+    src: install_docker.sh
+    dest: /tmp/install_docker.sh
+    owner: "{{ admin_user }}"
+    mode: 0755

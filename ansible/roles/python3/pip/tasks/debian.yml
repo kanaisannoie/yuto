@@ -1,0 +1,10 @@
+- name: install python3 pip
+  package:
+    state: present
+    name: python3-pip
+
+- name: install develop tools for compile a pip packcages
+  package:
+    name: [gcc,python3-dev,python3-setuptools]
+    state: present
+

@@ -1,0 +1,4 @@
+- name: install tigervnc server
+  package:
+    name: tigervnc-server
+    state: present

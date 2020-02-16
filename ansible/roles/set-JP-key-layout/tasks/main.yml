@@ -1,0 +1,17 @@
+# - name: download keymap
+#  get_url:
+#    url:  http://www.mail-archive.com/xrdp-devel@lists.sourceforge.net/msg00263/km-e0010411.ini
+#    dest: /etc/xrdp
+#    mode: 0744
+#  tags: debug
+
+- name: copy keymap
+  copy:
+    src: km-e0010411.ini
+    dest: /etc/xrdp/{{ item }}
+  with_items:
+    - km-e0010411.ini
+    - km-0411.ini
+    - km-e0200411.ini
+    - km-e0210411.ini
+  notify: restart xrdp server

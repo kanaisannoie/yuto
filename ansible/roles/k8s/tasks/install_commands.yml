@@ -1,0 +1,6 @@
+- name: copy commands for setting kubeadm up
+  copy:
+    src: setup_kubeadm.txt
+    dest: /tmp/setup_kubeadm.txt
+    owner: "{{ admin_user }}"
+    mode: 0644

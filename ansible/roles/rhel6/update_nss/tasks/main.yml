@@ -1,0 +1,4 @@
+- name: update nss
+  yum:
+    name: nss
+    state: latest

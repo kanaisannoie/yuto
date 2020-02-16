@@ -1,0 +1,7 @@
+# ansible static inventory
+{% for item in items %}
+[{{ item.group }}]
+{%- for hostname in item.hosts %}
+{{ hostname }}
+{%- endfor %}
+{%endfor %}

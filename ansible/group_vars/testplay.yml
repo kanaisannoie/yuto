@@ -1,0 +1,9 @@
+user_groups:
+- name: developers
+
+users:
+- name: jkanai
+  password: jkanai
+  groups: developers,wheel
+
+admin_user: jkanai

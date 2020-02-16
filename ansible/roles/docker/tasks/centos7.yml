@@ -1,0 +1,34 @@
+- name: install pkgs for docker
+  package:
+    name: [yum-utils,device-mapper-persistent-data,lvm2]
+    state: present
+
+- name: add docker repo
+  shell: "yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo"
+#  args:
+#    chdir: "/etc/yum.repos.d"
+#    creates: docker-ce.repo
+
+- name: install docker-ce
+  yum:
+    name: docker-ce
+    state: present
+  notify: restart docker
+
+# should add tags
+- name: add group
+  user:
+    name: "{{ main_user }}"
+    groups: docker
+    append: yes
+
+- name: install packages for docker-compose(pip3)
+  package:
+    name: [openssl-devel]
+    state: present
+
+- name: install docker-compose
+  pip:
+    name: docker-compose
+    executable: pip3
+    state: present

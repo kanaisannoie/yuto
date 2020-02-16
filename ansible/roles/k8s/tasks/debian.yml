@@ -1,0 +1,31 @@
+- name: install apt-transport-https curl
+  apt:
+    name:
+      - apt-transport-https
+      - curl
+    state: present
+
+- name: add apt key for install k8s
+  apt_key:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    state: present
+
+- name: add repository to apt
+  apt_repository:
+    repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
+    state: present
+    filename: /etc/apt/sources.list.d/kubernetes.list
+
+- name: apt update
+  apt:
+    update_cache: yes
+
+- name: install kubex packages
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ kubex }}"
+
+- name: apt-mark
+  shell: apt-mark hold "{{ item }}"
+  with_items: "{{ kubex }}"

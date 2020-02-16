@@ -1,0 +1,10 @@
+- name: delete yuto user when installation is completed
+  user:
+    name: ansible-yuto
+    state: absent
+    remove: yes
+    force: yes
+  ignore_errors: true
+  when: finalize == "true"
+
+

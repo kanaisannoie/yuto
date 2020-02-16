@@ -1,0 +1,4 @@
+- name: install useful packages
+  package:
+    name: [bash-completion,tcpdump,lsof,jq,mlocate,unzip,tree]
+    state: present

@@ -1,0 +1,5 @@
+- name: install docker by snap
+  snap:
+    name: docker
+    state: present
+

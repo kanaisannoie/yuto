@@ -1,0 +1,4 @@
+- name: update curl
+  yum:
+    name: curl
+    state: latest

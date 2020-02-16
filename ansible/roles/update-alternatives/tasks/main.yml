@@ -1,0 +1,11 @@
+- name: update-alternatives for xtables
+  alternatives:
+    name: "{{ item.name }}"
+    path: "{{ item.path }}"
+  ignore_errors: true
+  with_items:
+    - { name: iptables, path: /usr/sbin/iptables-legacy }
+    - { name: ip6tables, path: /usr/sbin/ip6tables-legacy }
+    - { name: arptables, path: /usr/sbin/arptables-legacy }
+    - { name: ebtables, path: /usr/sbin/ebtables-legacy }
+

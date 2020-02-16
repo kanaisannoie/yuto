@@ -1,0 +1,21 @@
+- name: install docker sdk for python
+  pip:
+    name: [docker]
+    executable: pip
+    state: present
+  tags: "netdata"
+
+- name: start netdata container
+  docker_container:
+    name: netdata
+    image: netdata/netdata
+    state: started
+    restart_policy: always
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    ports:
+      - "19999:19999"
+    capabilities: SYS_PTRACE
+    security_opts: apparmor=unconfined

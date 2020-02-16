@@ -1,0 +1,14 @@
+- name: install python3
+  package:
+    name: python36
+    state: present
+
+- name: install python3-pip
+  package:
+    name: python36-pip
+    state: present
+
+- name: install developers packgaes for pip3
+  package:
+    name: [gcc,python36-devel,python-setuptools,python36-setuptools]
+    state: present

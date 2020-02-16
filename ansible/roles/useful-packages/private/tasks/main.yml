@@ -1,0 +1,14 @@
+- name: install private useful packages
+  package:
+    state: present
+    name: [git,fish,peco,tig,tmux]
+
+- name: install useful pip packages
+  pip:
+    name: [neovim,flake8,awscli,ipython,powerline-status]
+    executable: pip3
+    state: present
+
+- include: ubuntu.yml
+  when:
+    - ansible_distribution == 'Ubuntu' or ansible_lsb.id == 'Raspbian'

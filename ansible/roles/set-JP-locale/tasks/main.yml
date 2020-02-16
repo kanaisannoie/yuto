@@ -1,0 +1,13 @@
+- name: comment out EN locale in /etc/sysoconfig/i18n
+  lineinfile:
+    path: "/etc/sysconfig/i18n"
+    state: present
+    backrefs: "yes"
+    regexp: '^(LANG="?en.*)$'
+    line: '#\1'
+
+- name: set jp locale in /etc/sysconfig/i18n
+  lineinfile:
+    path: "/etc/sysconfig/i18n"
+    state: present
+    line: 'LANG="ja_JP.UTF-8"'

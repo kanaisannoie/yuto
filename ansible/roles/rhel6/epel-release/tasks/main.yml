@@ -1,0 +1,16 @@
+- name: update curl
+  include_tasks: ../../../update_curl/tasks/main.yml
+
+- name: update nss
+  include_tasks: ../../../update_nss/tasks/main.yml
+
+- name: download epel-release for rhel6.8
+  get_url:
+    url: https://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+    dest: /tmp
+    mode: 0744
+
+- name: install epel-release
+  yum:
+    name: /tmp/epel-release-6-8.noarch.rpm
+    state: present

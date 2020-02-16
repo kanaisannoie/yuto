@@ -1,0 +1,7 @@
+- name: comment out for wheel in /etc/sudoers
+  lineinfile:
+    path: "/etc/sudoers"
+    state: present
+    backrefs: "yes"
+    regexp: '^# %wheel'
+    line: '\1'

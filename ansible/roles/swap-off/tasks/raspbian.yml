@@ -1,0 +1,10 @@
+- name: swap off
+  systemd:
+    name: dphys-swapfile.service
+    state: stopped
+    enabled: no
+
+- name: delete swap file
+  file:
+    path: /var/swap
+    state: absent

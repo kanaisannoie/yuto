@@ -1,0 +1,6 @@
+- name: copy shell script for local docker registry
+  copy:
+    src: docker-registry.sh
+    dest: /tmp/doceker-registry.sh
+    owner: "{{ admin_user }}"
+    mode: 0755

@@ -1,0 +1,10 @@
+- name: start local docker registry
+  docker_container:
+    name: ldr
+    image: registry:latest
+    state: started
+    restart_policy: always
+    volumes:
+      - "{{ local_docker_registry_directory }}":/var/lib/registry
+    ports:
+      - "5000:5000"

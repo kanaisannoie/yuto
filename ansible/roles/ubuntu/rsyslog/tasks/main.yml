@@ -1,0 +1,34 @@
+- name: make directory for ssg traffic
+  file:
+    path: /var/log/ssg
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: make log file for ssg traffic
+  file:
+    path: /var/log/ssg/traffic.log
+    state: touch
+    owner: root
+    group: root
+    mode: 0744
+
+- name: copy rsyslog settting for ssg traffic
+  copy:
+    src: ssg_traffic_log.conf
+    dest: /etc/rsyslog.d/
+    mode: 0755
+
+- name: open udp port on rsyslog.conf
+  replace:
+    dest: /etc/rsyslog.conf
+    regexp: '^#module\(load="imudp"\)$'
+    replace: 'module(load="imudp")'
+
+- name: open udp port on rsyslog.conf
+  replace:
+    dest: /etc/rsyslog.conf
+    regexp: '^#input\(type="imudp" port="514"\)$'
+    replace: 'input(type="imudp" port="514")'
+  notify: restart rsyslog.service

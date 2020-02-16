@@ -1,0 +1,5 @@
+- name: install Japanese Support
+  yum:
+    name: "@Japanese Support"
+    state: latest
+

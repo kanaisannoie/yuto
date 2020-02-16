@@ -1,0 +1,28 @@
+- include: debian.yml
+  when:
+    - ansible_os_family == "Debian"
+
+- name: mkdir .ssh          #.sshフォルダの作成
+  file:
+    dest: /home/{{admin_user}}/.ssh/
+    state: directory
+    owner: "{{admin_user}}"
+    group: "{{admin_user}}"
+    mode: 0700
+
+#- name: add authorized keys
+#  file:
+#    dest: /home/"{{admin_user}}"/.ssh/authorized_keys
+#    state: touch
+#    owner: "{{admin_user}}"
+#    group: "{{admin_user}}"
+#    mode: 0600
+
+- name: copy publickey
+  copy:
+    src: sshkey.pub
+    dest: /home/{{admin_user}}/.ssh/authorized_keys
+    owner: "{{admin_user}}"
+    group: "{{admin_user}}"
+    mode: 0600
+

@@ -1,0 +1,17 @@
+- include: ubuntu.yml
+  when:
+    - ansible_distribution == "Ubuntu"
+
+- name: list Installed Vagrant Plugins
+  shell: "vagrant plugin list | awk '{ print $1 }'"
+  changed_when: false
+  register: vagrant_plugin_list
+
+- name: install Vagrant Plugins
+  shell: "vagrant plugin install {{item}}"
+  with_items:
+    - vagrant-vbguest
+    - vagrant-aws
+    - vagrant-global-status
+    - sahara
+  when: item not in vagrant_plugin_list.stdout_lines

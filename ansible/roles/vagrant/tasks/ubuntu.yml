@@ -1,0 +1,10 @@
+- name: install virtualbox
+  apt:
+    name: virtualbox
+    state: present
+
+- name: install vagrant
+  apt:
+    name: vagrant
+    state: present
+

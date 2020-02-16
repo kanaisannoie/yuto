@@ -1,0 +1,4 @@
+- name: install mDNS daemons
+  package:
+    name: [avahi,avahi-tools,nss-mdns]
+    state: present

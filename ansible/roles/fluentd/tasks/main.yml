@@ -1,0 +1,23 @@
+- name: install ruby
+  package:
+    name: ruby
+    state: present
+
+- name: install ruby-dev
+  package:
+    name: ruby-dev
+    state: present
+
+- name: install fluentd
+  gem:
+    name: fluentd
+    user_install: yes
+    state: present
+  become: no
+
+- name: install stdout
+  gem:
+    name: fluent-plugin-stdin
+    user_install: yes
+    state: present
+  become: no

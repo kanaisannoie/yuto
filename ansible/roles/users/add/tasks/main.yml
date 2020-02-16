@@ -1,0 +1,15 @@
+- include: add_groups
+
+- name: add users
+  user:
+    name: "{{ item.name }}"
+    password: "{{ item.password | password_hash('sha512') }}"
+    groups: "{{ item.groups }}"
+    update_password: on_create
+    generate_ssh_key: no
+    createhome: yes
+    shell: /bin/bash
+    state: present
+  with_items:
+    - "{{ users }}"
+

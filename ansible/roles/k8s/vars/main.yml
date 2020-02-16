@@ -1,0 +1,4 @@
+kubex:
+  - kubeadm
+  - kubelet
+  - kubectl

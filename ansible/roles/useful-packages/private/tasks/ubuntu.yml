@@ -1,0 +1,4 @@
+- name: private useful packages for ubuntu
+  package:
+    state: present
+    name: [git-flow,direnv]

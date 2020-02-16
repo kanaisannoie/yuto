@@ -1,0 +1,5 @@
+# ansible static inventory
+
+[testplay]
+testPlay01
+
