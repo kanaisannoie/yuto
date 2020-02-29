@@ -21,9 +21,8 @@ installPythonLibs:
 
 dockerEnv: buildAnsibleContainer buildMarmotContainers
 
-buildAnsibleContainer:
-	docker build -t ansible-yuto -f ansible/Dockerfile .
-
+buildAnsibleBaseContainer:
+	docker build -t ansible-yuto:base -f ansible/Dockerfile.base .
 
 buildMarmotContainers:
 	docker build -t marmot_centos7 -f test-site/marmot/centos7/Dockerfile .

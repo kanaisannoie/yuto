@@ -1,0 +1,6 @@
+- name: install useful pip packages
+  pip:
+    name: [pynvim,flake8,awscli,ipython,powerline-status]
+    executable: pip3
+    state: present
+

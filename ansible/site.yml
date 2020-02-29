@@ -1,0 +1,11 @@
+- hosts: sample
+  gather_facts: yes
+  become: True
+
+  roles:
+    - hostname
+    - timezone
+    - users/add_admin
+    - packages/update
+    - packages/usefuls
+    - docker

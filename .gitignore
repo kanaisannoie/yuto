@@ -2,10 +2,12 @@
 *.retry
 usualkey.*
 *.pem
++.key
 *.pub
 !keys/ansible-yuto.pub
 !keys/ansible-yuto.pem
 __pycache__/
 .DS_Store
 venv/
+.pytest_cache/
 

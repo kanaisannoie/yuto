@@ -1,6 +1,0 @@
-- hosts: testplay
-  gather_facts: yes
-  become: True
-
-  roles:
-    - update-alternatives

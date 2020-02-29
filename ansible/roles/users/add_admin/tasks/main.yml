@@ -1,6 +1,5 @@
 - include: debian.yml
-  when:
-    - ansible_os_family == "Debian"
+  when: ansible_os_family == "Debian"
 
 - name: mkdir .ssh          #.sshフォルダの作成
   file:

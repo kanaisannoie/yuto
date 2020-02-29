@@ -1,2 +1,5 @@
 - include: raspbian.yml
   when: ansible_lsb.id == "Raspbian"
+
+- include: ubuntu.yml
+  when: ansible_distribution == "Ubuntu"

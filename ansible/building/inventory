@@ -1,5 +1,4 @@
 # ansible static inventory
 
-[testplay]
-testPlay01
-
+[sample]
+sample001

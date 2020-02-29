@@ -1,0 +1,7 @@
+- name: delete default user
+  user:
+    name: ubuntu
+    state: absent
+    remove: yes
+    force: yes
+  ignore_errors: true

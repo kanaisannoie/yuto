@@ -1,5 +1,4 @@
 # ssh config
 
-Host testPlay01
-  hostname mubuntu1604
-
+Host sample001
+  hostname 192.168.64.4

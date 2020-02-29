@@ -1,6 +1,4 @@
 - include: convenience.yml
-  when: install_docker == "true"
-  #  - ansible_lsb.id == 'Raspbian'
 
 - name: add admin user to docker group
   user:
