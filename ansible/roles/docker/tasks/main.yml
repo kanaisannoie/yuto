@@ -4,4 +4,4 @@
   user:
     name: "{{ admin_user }}"
     group: docker
-
+    append: yes

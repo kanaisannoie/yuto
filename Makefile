@@ -24,6 +24,9 @@ dockerEnv: buildAnsibleContainer buildMarmotContainers
 buildAnsibleBaseContainer:
 	docker build -t ansible-yuto:base -f ansible/Dockerfile.base .
 
+buildTestInfraBaseContainer:
+	docker build -t testinfra-yuto:baser -f testinfra/Dockerfile .
+
 buildMarmotContainers:
 	docker build -t marmot_centos7 -f test-site/marmot/centos7/Dockerfile .
 	docker build -t marmot_centos6 -f test-site/marmot/centos6/Dockerfile .
@@ -49,6 +52,11 @@ buildTestSiteAnsibleContainer:
 
 testPlay:
 	docker run -t --net test-site-nw -v $(PWD)/ansible:/ansible --rm ansible-yuto ansible-playbook -i hosts/inventory playbooks/testPlay.yml
+
+localTestInfra:
+	python testinfra/setup.py
+	py.test --connection=ssh --hosts=ubuntu@192.168.64.4 --ssh-config="../ansible/ssh_config" --ssh-identity-file="../ansible/multipass_key.pem" --sudo ./tests/ -v
+
 
 clean:
 	rm -rf ansible/ansible-yuto.pem

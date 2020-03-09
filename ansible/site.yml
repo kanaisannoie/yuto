@@ -8,4 +8,5 @@
     - users/add_admin
     - packages/update
     - packages/usefuls
-    - docker
+    - packages/usefuls/private
+

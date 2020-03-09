@@ -8,4 +8,3 @@
 - name: install docker by convenience script
   shell: /tmp/get-docker.sh
 
-
