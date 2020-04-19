@@ -1,4 +1,5 @@
 # ansible static inventory
 
-[sample]
-sample001
+[developers]
+yukawa
+

@@ -1,0 +1,4 @@
+- name: install softflowd
+  package:
+    name: softflowd
+    state: present
