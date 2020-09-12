@@ -1,0 +1,11 @@
+- name: install softflowd
+  package:
+    name: softflowd
+    state: present
+
+- name: copy launch sample
+  copy:
+    src: launch.sh
+    dest: /tmp
+    mode: 0755
+    owner: "{{ admin_user }}"
