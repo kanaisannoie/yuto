@@ -1,0 +1,15 @@
+- name: install samba package
+  package:
+    naame: samba
+    state: present
+
+- name: add settings
+  blockinfile:
+    path: /etc/samba/smb.conf
+    block: |
+        [Public]
+        path = /mnt/hdd1/
+        public = yes
+        writable = yes
+        guest ok = no 
+        guest only = no 
