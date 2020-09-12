@@ -1,0 +1,14 @@
+- hosts: developers
+  gather_facts: yes
+  become: True
+
+  roles:
+    - hostname
+    - mdns
+    - timezone
+    - users/add_admin
+    - packages/update
+    - packages/usefuls
+    - packages/usefuls/private
+    - softflowd
+

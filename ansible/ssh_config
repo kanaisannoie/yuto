@@ -1,4 +1,4 @@
 # ssh config
 
-Host sample001
-  hostname 192.168.64.4
+Host yukawa
+  hostname 192.168.1.67
