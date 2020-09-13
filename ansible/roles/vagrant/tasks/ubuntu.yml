@@ -7,4 +7,3 @@
   apt:
     name: vagrant
     state: present
-

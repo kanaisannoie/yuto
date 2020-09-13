@@ -1,15 +1,16 @@
 - name: install samba package
   package:
-    naame: samba
+    name: samba
     state: present
 
 - name: add settings
   blockinfile:
     path: /etc/samba/smb.conf
     block: |
-        [Public]
-        path = /mnt/hdd1/
+        [media]
+        path = "{{ media_dir }}"
         public = yes
         writable = yes
         guest ok = no 
         guest only = no 
+  notify: restart samba

@@ -1,0 +1,4 @@
+- name: restart samba
+  systemd:
+    name: smbd.service
+    state: restarted

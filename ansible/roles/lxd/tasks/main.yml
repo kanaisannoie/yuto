@@ -1,0 +1,4 @@
+- name: install lxd
+  package:
+    name: [lxd,lxd-client]
+  state: present

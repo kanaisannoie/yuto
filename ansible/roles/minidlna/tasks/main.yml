@@ -1,0 +1,12 @@
+- name: install minidlna
+  package:
+    name: minidlna
+    state: present
+
+- name: set media directory
+  lineinfile:
+    path: "/etc/minidlna.conf"
+    regexp: "^media_dir="
+    line: "media_dir={{ media_dir }}"
+    state: present
+  notify: restart minidlna
