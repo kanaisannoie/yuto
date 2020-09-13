@@ -1,0 +1,6 @@
+- hosts:  media_services
+  gather_facts: yes
+  become: True
+
+  roles:
+    - samba

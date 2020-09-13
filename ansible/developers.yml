@@ -1,4 +1,4 @@
-- hosts: sample
+- hosts:  developers
   gather_facts: yes
   become: True
 
@@ -9,4 +9,3 @@
     - packages/update
     - packages/usefuls
     - packages/usefuls/private
-    - samba

@@ -5,5 +5,3 @@ users:
 - name: jkanai
   password: jkanai
   groups: developers,wheel
-
-admin_user: jkanai

@@ -1,3 +1,2 @@
-hostname: sample001
+hostname: k8s-master
 install_docker: true
-
